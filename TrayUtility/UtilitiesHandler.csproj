@@ -58,9 +58,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="NotifyIconManager.cs" />
-    <Compile Include="SettingsManager.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="Utility.cs" />
-    <Compile Include="UtilityManager.cs" />
+    <Compile Include="UtilitiesManager.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
