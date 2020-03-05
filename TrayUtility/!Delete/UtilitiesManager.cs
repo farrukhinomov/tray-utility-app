@@ -10,12 +10,12 @@ namespace UtilitiesHandler
 {
     public class UtilitiesManager
     {
-        public string OutputFolder { get; private set; } = System.IO.Directory.GetCurrentDirectory();
-        public List<Utility> Utilities { get; private set; } = new List<Utility>();
+        public string OutputFolder { get; private set; } 
+        public List<Utility> Utilities { get; private set; } 
 
         public UtilitiesManager()
         {
-
+            Utilities = new List<Utility>();
         }
         public void LoadUtilities()
         {

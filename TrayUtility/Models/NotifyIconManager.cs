@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
 
 namespace UtilitiesHandler
 {
-    public class NotifyIconManager
+    public class NotifyIconManager : ITrayService
     {
         private NotifyIcon _notifyIcon;
+        private readonly IWindowsService _windowsService;
+        private readonly IUtilityService UtilityService;
 
-        public NotifyIconManager()
+        public NotifyIconManager(IUtilityService utilityService, IWindowsService windowsService)
         {
+            UtilityService = utilityService;
+            _windowsService = windowsService;
             _notifyIcon = new NotifyIcon()
             {
                 ContextMenuStrip = new ContextMenuStrip(),
@@ -21,16 +25,19 @@ namespace UtilitiesHandler
                 Text = "Tray Utilities app",
                 Visible = true,
             };
-            _notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(notifyIcon_Click);
-            //_notifyIcon.DoubleClick += notifyIcon_DoubleClick;
-            _notifyIcon.ShowBalloonTip(500, "Utility app is running...", "You can start the commands here", System.Windows.Forms.ToolTipIcon.Info);
+            _notifyIcon.MouseClick += new MouseEventHandler(notifyIcon_Click);
+            _notifyIcon.DoubleClick += Double_Click;
+            _notifyIcon.ShowBalloonTip(500, "Utility app is running...", "You can start the commands here", ToolTipIcon.Info);
         }
 
-        public void LoadUtilitiesToContextMenuStrip(List<Utility> utilities)
+        public void RefreshTrayItems()
         {
+            var utilities = UtilityService.GetUtilities().Where(item => item.Enabled == true);
+            _notifyIcon.ContextMenuStrip.Items.Clear();
             foreach (var item in utilities)
                 _notifyIcon.ContextMenuStrip.Items.Add(ToolStripMenuItemWithHandler(item));
             _notifyIcon.ContextMenuStrip.Items.Add(new ToolStripMenuItem("Exit", null, new EventHandler(ExitApp)));
+            
         }
 
         private ToolStripMenuItem ToolStripMenuItemWithHandler(Utility utility)
@@ -47,15 +54,19 @@ namespace UtilitiesHandler
             typeof(NotifyIcon).GetMethod("ShowContextMenu", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(_notifyIcon, null);
         }
 
-        private string TrayContextMenuHandler(object sender, EventArgs e, Func<string> message)
+        private void TrayContextMenuHandler(object sender, EventArgs e, Func<string> run)
         {
-            return message.Invoke() + "\n";
+            var takenMessage = run.Invoke() + "\n";
+            _windowsService.AddMessageToLogger(takenMessage);
+        }
+        private void Double_Click(object sender, EventArgs e)
+        {
+            _windowsService.ShowWindow();
         }
 
         private void ExitApp(object sender, EventArgs e)
         {
-            System.Windows.Application.Current.Shutdown();
+            _windowsService.ExitApp();
         }
-
     }
 }
