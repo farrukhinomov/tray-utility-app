@@ -44,22 +44,26 @@ namespace UtilitiesHandler
         {
             if (!Directory.Exists(JsonFileDirectoryPath))
                 Directory.CreateDirectory(JsonFileDirectoryPath);
-            string file = "";
-            try
-            {
-                file = File.ReadAllText($"{JsonFileDirectoryPath}\\{JsonFileName}");
-            }
-            finally
-            {
-                if (file != "" || file != null)
-                {
-                    var utlitiesNamesFromFile = JsonConvert.DeserializeObject<IEnumerable<string>>(file);
 
-                    foreach (var fileItem in utlitiesNamesFromFile)
-                        foreach (var item in utilities.ToList())
-                            if (fileItem == item.Name) item.Enabled = false;
+            string file = "";
+            if (File.Exists($"{JsonFileDirectoryPath}\\{JsonFileName}"))
+                try
+                {
+                    file = File.ReadAllText($"{JsonFileDirectoryPath}\\{JsonFileName}");
                 }
-            }
+                finally
+                {
+                    if (file != "" || file != null)
+                    {
+                        var utlitiesNamesFromFile = JsonConvert.DeserializeObject<IEnumerable<string>>(file);
+
+                        foreach (var fileItem in utlitiesNamesFromFile)
+                            foreach (var item in utilities.ToList())
+                                if (fileItem == item.Name) item.Enabled = false;
+                    }
+                }
+            else
+                SaveDisabledUtilitiesNameToFile(utilities);
             return utilities;
         }
 
