@@ -1,4 +1,6 @@
 ﻿using Common;
+using Newtonsoft.Json;
+using ReactiveUI;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -6,24 +8,32 @@ using System.Text;
 
 namespace UtilitiesHandler
 {
-    public class Utility
+    public class Utility : ReactiveObject
     {
+        [JsonProperty("utility-name")]
         public string Name { get; set; }
         public string Help { get; set; }
-        public bool Enabled { get; set; }
+        public bool Enabled
+        {
+            get => enabled;
+            set
+            {
+                this.RaiseAndSetIfChanged(ref enabled, value);
+            }
+        }
 
         MethodInfo _runMethod;
         object _instance;
-
+        private bool enabled;
 
         public Utility(Type type)
         {
-
             _instance = CreateInstance(type);
             UtilityAttribute attributes = GetAttributes(type);
 
             Name = GetName(attributes);
             Help = GetHelpMethodMessage(type);
+            Enabled = true;
 
             _runMethod = type.GetMethod("Run", BindingFlags.Public | BindingFlags.Instance);
         }
