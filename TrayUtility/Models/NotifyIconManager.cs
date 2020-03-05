@@ -21,7 +21,7 @@ namespace UtilitiesHandler
             _notifyIcon = new NotifyIcon()
             {
                 ContextMenuStrip = new ContextMenuStrip(),
-                Icon = new System.Drawing.Icon("notify.ico"),
+                Icon = new System.Drawing.Icon($"{System.AppDomain.CurrentDomain.BaseDirectory}..\\..\\Resources\\app_icon.ico"),
                 Text = "Tray Utilities app",
                 Visible = true,
             };
