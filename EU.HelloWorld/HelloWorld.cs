@@ -1,7 +1,7 @@
 ﻿using Common;
 using System;
 
-namespace EU
+namespace EU.HelloWord
 {
     [Utility("Hello world!")]
     public class HelloWorld : UtilityBase

@@ -11,10 +11,4 @@ namespace Common
         }
         public string Name { get; set; }
     }
-
-    public abstract class UtilityBase
-    {
-        public abstract string Run();
-        public abstract string Help();
-    }
 }

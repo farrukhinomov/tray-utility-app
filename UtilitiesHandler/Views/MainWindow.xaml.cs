@@ -35,6 +35,8 @@ namespace UtilitiesHandler.Views
 
         public void ShowWindow()
         {
+            ScrollBar1.Focus();
+            ScrollBar1.ScrollToEnd();
             WindowState = WindowState.Normal;
             Show();
         }

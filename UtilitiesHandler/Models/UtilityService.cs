@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Common;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -29,9 +30,11 @@ namespace UtilitiesHandler
             var utilities = new List<Utility>();
             foreach (var file in GetUtilitiesFiles())
                 foreach (var type in GetFileTypes(file.FullName))
-                    utilities.Add(new Utility(type));
+                    if (type.GetCustomAttribute<UtilityAttribute>() != null)
+                        utilities.Add(new Utility(type));
             return ReadDisabledUtilitiesNameFromFile(utilities);
         }
+
         public void SaveDisabledUtilitiesNameToFile(IEnumerable<Utility> utilities)
         {
             if (!Directory.Exists(JsonFileDirectoryPath))
@@ -72,12 +75,11 @@ namespace UtilitiesHandler
             Assembly assembly = Assembly.LoadFile(fileFullPath);
             return assembly.GetTypes();
         }
+
         private FileInfo[] GetUtilitiesFiles()
         {
             DirectoryInfo utilitiesDirectory = new DirectoryInfo(OutputFolderPath);
             return utilitiesDirectory.GetFiles("EU.*.dll", SearchOption.AllDirectories);
         }
-
-
     }
 }
