@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Windows;
 using System.Windows.Forms;
 
 namespace UtilitiesHandler
@@ -27,17 +24,19 @@ namespace UtilitiesHandler
             };
             _notifyIcon.MouseClick += new MouseEventHandler(notifyIcon_Click);
             _notifyIcon.DoubleClick += Double_Click;
-            _notifyIcon.ShowBalloonTip(500, "Utility starter app is running...", "You can start the utilities here", ToolTipIcon.Info);
+            _notifyIcon.ShowBalloonTip(500, "Utility Handler app is running...", "You can start the utilities here", ToolTipIcon.Info);
+            _notifyIcon.BalloonTipClicked += BalloonTipClicked;
         }
 
         public void RefreshTrayItems()
         {
             var utilities = UtilityService.GetUtilities().Where(item => item.Enabled == true);
             _notifyIcon.ContextMenuStrip.Items.Clear();
-            _notifyIcon.ContextMenuStrip.Items.Add(new ToolStripMenuItem("Open", null, new EventHandler(ShowWindow)));
+            _notifyIcon.ContextMenuStrip.Items.Add(new ToolStripMenuItem("Open UI", null, new EventHandler(ShowWindow)));
+            _notifyIcon.ContextMenuStrip.Items.Add(new ToolStripMenuItem("Exit", null, new EventHandler(ExitApp)));
+            _notifyIcon.ContextMenuStrip.Items.Add(new ToolStripSeparator()); //Divider
             foreach (var item in utilities)
                 _notifyIcon.ContextMenuStrip.Items.Add(ToolStripMenuItemWithHandler(item));
-            _notifyIcon.ContextMenuStrip.Items.Add(new ToolStripMenuItem("Exit", null, new EventHandler(ExitApp)));
         }
 
         private ToolStripMenuItem ToolStripMenuItemWithHandler(Utility utility)
@@ -64,6 +63,10 @@ namespace UtilitiesHandler
             _windowsService.AddMessageToLogger(takenMessage);
         }
         private void Double_Click(object sender, EventArgs e)
+        {
+            _windowsService.ShowWindow();
+        }
+        private void BalloonTipClicked(object sender, EventArgs e)
         {
             _windowsService.ShowWindow();
         }

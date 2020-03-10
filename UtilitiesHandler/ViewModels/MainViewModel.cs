@@ -18,10 +18,9 @@ namespace UtilitiesHandler
 
         private readonly IUtilityService _utilityService;
         private readonly IWindowsService _windowsService;
+        public ITrayService TrayService { get; }
 
-        public MainViewModel(IUtilityService utilityService
-            , IWindowsService windowsService
-            , ITrayService trayService)
+        public MainViewModel(IUtilityService utilityService, IWindowsService windowsService, ITrayService trayService)
         {
             _utilityService = utilityService;
             _windowsService = windowsService;
@@ -49,6 +48,5 @@ namespace UtilitiesHandler
             set => this.RaiseAndSetIfChanged(ref _windowState, value);
         }
 
-        public ITrayService TrayService { get; }
     }
 }

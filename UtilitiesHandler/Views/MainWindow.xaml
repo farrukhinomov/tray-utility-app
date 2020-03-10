@@ -52,7 +52,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Label Content="Enable/Disable utilities:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="14" Height="29" Width="170" FontWeight="Bold"/>
-        <Label Content="Log of utilities:" HorizontalAlignment="Left" Margin="351,10,0,0" VerticalAlignment="Top" FontSize="14" Height="29" Width="109" FontWeight="Bold"/>
+        <Label Content="Utilities:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="14" Height="29" Width="170" FontWeight="Bold"/>
+        <Label Content="Log:" HorizontalAlignment="Left" Margin="351,10,0,0" VerticalAlignment="Top" FontSize="14" Height="29" Width="109" FontWeight="Bold"/>
     </Grid>
 </Window>
