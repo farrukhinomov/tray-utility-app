@@ -8,12 +8,12 @@ using System;
 namespace EU.DropDatabase
 {
     [Utility(UtilityName)]
-    public class DropSampleDatabase : DropDatabase
+    public class DropEagleCompanyManagerDatabase : DropDatabase
     {
-        const string DbName = "Sample_Sample";
+        const string DbName = "EagleCompanyManager_EagleCompanyManager";
         const string UtilityName = "Drop database - " + DbName;
 
-        public DropSampleDatabase() : base(DbName)
+        public DropEagleCompanyManagerDatabase() : base(DbName)
         {
         }
     }

@@ -17,13 +17,11 @@ namespace UtilitiesHandler
         public string OutputFolder { get; private set; }
 
         private readonly IUtilityService _utilityService;
-        private readonly IWindowsService _windowsService;
         public ITrayService TrayService { get; }
 
-        public MainViewModel(IUtilityService utilityService, IWindowsService windowsService, ITrayService trayService)
+        public MainViewModel(IUtilityService utilityService, ITrayService trayService)
         {
             _utilityService = utilityService;
-            _windowsService = windowsService;
             TrayService = trayService;
         }
 

@@ -17,7 +17,7 @@ namespace UtilitiesHandler.Views
             notifyIconManager = new NotifyIconManager(utilityService, this);
             notifyIconManager.RefreshTrayItems();
             StartupUIConfigure();
-            DataContext = mainViewModel = new MainViewModel(utilityService, this, notifyIconManager);
+            DataContext = mainViewModel = new MainViewModel(utilityService, notifyIconManager);
             Loaded += MainWindow_Loaded;
         }
 

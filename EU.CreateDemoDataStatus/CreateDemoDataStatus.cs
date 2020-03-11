@@ -27,25 +27,53 @@ namespace EU.CreateDemoDataStatus
             _filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Eagle", "config.json");
             _fileContent = string.Empty;
             _tagName = "CreateDatabaseInitiation";
-            LoadFileContent();
-            GetDatabaseInitiationStatusFromFile();
         }
 
         public override string Run()
         {
+            try
+            {
+                LoadFileContent();
+            }
+            catch (FileNotFoundException fnfex)
+            {
+                return $"Can't read the file for some reason. {fnfex.Message}";
+            }
+            catch (Exception ex)
+            {
+                return $"Can't read the file for some reason.\n{ex.Message}";
+            }
+
+            try
+            {
+                GetDatabaseInitiationStatusFromFile();
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+
             ChangeStatus();
+            try
+            {
+                SaveFileContent();
+            }
+            catch (Exception ex)
+            {
+                return $"Can't save the file for some reason.\n{ex.Message}";
+            }
+
             return $"DemoData creation status changed to '{_demoDataCreationStatus}'";
         }
         public override string Help()
         {
-            return $"DemoData creation status will be changed to '{ChangingStatus()}'";
+            return $"DemoData creation status will be changed";
         }
 
         private void ChangeStatus()
         {
             _fileContent = _fileContent.Replace($"<{_tagName}>{_demoDataCreationStatus}</{_tagName}>", $"<{_tagName}>{ChangingStatus()}</{_tagName}>");
             _demoDataCreationStatus = ChangingStatus();
-            SaveFileContent();
         }
 
         private DatabaseInitiationStatus ChangingStatus()
@@ -55,7 +83,6 @@ namespace EU.CreateDemoDataStatus
 
         private void GetDatabaseInitiationStatusFromFile()
         {
-            //string input = "<div>This is a test</div><div class=\"something\">This is ANOTHER test</div>";
             string pattern = "<" + _tagName + "(.*?)>(.*?)<\\/" + _tagName + ">";
 
             MatchCollection matches = Regex.Matches(_fileContent, pattern);
@@ -65,40 +92,26 @@ namespace EU.CreateDemoDataStatus
                 if (matchesCount == 1)
                 {
                     var status = matches[0].Groups[2].ToString();
-                    Enum.TryParse(status, out _demoDataCreationStatus);
+                    if (!Enum.TryParse(status, out _demoDataCreationStatus)) throw new Exception ($"Wrong option inside '{_tagName}' XML-tag");
                 }
                 else
-                    throw new Exception("It has 'CreateDatabaseInitiation' XML-tags, but the configfile structure is not correct");
+                    throw new Exception($"The file structure is not correct, but it has '{_tagName}' XML-tags");
             }
             else
-                throw new Exception("Can find 'CreateDatabaseInitiation' XML-tag");
+                throw new Exception($"Can't find '{_tagName}' XML-tag");
         }
         private void LoadFileContent()
         {
-            try
-            {
-                _fileContent = File.ReadAllText(_filePath);
-                if (string.IsNullOrEmpty(_fileContent))
-                {
-                    throw new Exception("The file is empty");
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Can't read the file for some reason. ", ex);
-            }
 
+            _fileContent = File.ReadAllText(_filePath);
+            if (string.IsNullOrEmpty(_fileContent))
+            {
+                throw new Exception("The file is empty");
+            }
         }
         private void SaveFileContent()
         {
-            try
-            {
-                File.WriteAllText(_filePath, _fileContent);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Can't save the file for some reason. ", ex);
-            }
+            File.WriteAllText(_filePath, _fileContent);
         }
     }
 }

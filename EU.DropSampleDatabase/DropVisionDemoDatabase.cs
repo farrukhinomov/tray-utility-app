@@ -10,10 +10,10 @@ namespace EU.DropDatabase
     [Utility(UtilityName)]
     public class DropVisionDemoDatabase : DropDatabase
     {
-        const string DbNameVisionDemo = "Vision_Demo";
-        const string UtilityName = "Drop '" + DbNameVisionDemo + "' database";
+        const string DbName = "Vision_Demo";
+        const string UtilityName = "Drop database - " + DbName;
 
-        public DropVisionDemoDatabase() : base(DbNameVisionDemo)
+        public DropVisionDemoDatabase() : base(DbName)
         {
         }
     }

@@ -10,7 +10,7 @@ namespace EU.DropDatabase
     public class DropDatabase : UtilityBase
     {
         string _dbName;
-        string _dbNameTemporary;
+        string _dbNameWithTemporaryPostfix;
         string _connectionString;
         string _resultString;
 
@@ -18,19 +18,21 @@ namespace EU.DropDatabase
         public DropDatabase(string dbName)
         {
             _dbName = dbName;
-            _dbNameTemporary = $"{dbName}_Temporary";
+            _dbNameWithTemporaryPostfix = $"{dbName}_Temporary";
             _connectionString = @"data source=localhost;integrated security=True";
             _resultString = string.Empty;
         }
         public override string Run()
         {
             DropDataBase(_dbName);
-            DropDataBase(_dbNameTemporary);
-            return _resultString != string.Empty ? _resultString.TrimEnd() : "Nothing was done";
+            DropDataBase(_dbNameWithTemporaryPostfix);
+            var result = _resultString != string.Empty ? _resultString.TrimEnd() : "Nothing was done";
+            _resultString = string.Empty;
+            return result;
         }
         public override string Help()
         {
-            return $"Drops '{_dbName}' and '{_dbNameTemporary}' databases";
+            return $"Drops '{_dbName}' and '{_dbNameWithTemporaryPostfix}' databases";
         }
 
         private void DropDataBase(string dbName)

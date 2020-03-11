@@ -41,7 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DropModelDesignerDemoDatabase.cs" />
+    <Compile Include="DropEagleCompanyManagerDatabase.cs" />
     <Compile Include="DropDatabase.cs" />
+    <Compile Include="DropMyEbmsTestsDemoDatabase.cs" />
+    <Compile Include="DropMyEbmsDemoDatabase.cs" />
+    <Compile Include="DropCentralAppManagerDatabase.cs" />
     <Compile Include="DropVisionDemoDatabase.cs" />
     <Compile Include="DropSampleDatabase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

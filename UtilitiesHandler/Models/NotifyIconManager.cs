@@ -61,7 +61,7 @@ namespace UtilitiesHandler
             takenMessage += $"Message: {run.Invoke()}\n";
             takenMessage += $"Execution time: {DateTime.Now.Subtract(startTime)}\n---------------!-!-!---------------\n";
             _windowsService.AddMessageToLogger(takenMessage);
-            RefreshTrayItems();
+            //RefreshTrayItems();
         }
         private void Double_Click(object sender, EventArgs e)
         {

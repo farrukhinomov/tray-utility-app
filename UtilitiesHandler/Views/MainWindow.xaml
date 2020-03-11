@@ -27,6 +27,8 @@
         </Border>
         <ListView Height="455"
               HorizontalAlignment="Left"
+              ScrollViewer.CanContentScroll="True"
+              ScrollViewer.VerticalScrollBarVisibility="Auto"
               Name="listView1"
               VerticalAlignment="Top"
               Width="320"
@@ -47,7 +49,7 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Name" Width="245" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Name" Width="auto" />
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
