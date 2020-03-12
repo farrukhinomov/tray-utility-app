@@ -13,20 +13,20 @@ namespace EU.CreateDemoDataStatus
         Off
     }
 
-    [Utility(UtilityName)]
     public class CreateDemoDataStatus : UtilityBase
     {
-        const string UtilityName = "Demo data creation status";
         DatabaseInitiationStatus _demoDataCreationStatus;
-        string _fileContent;
         string _filePath;
+        string _fileContent;
         string _tagName;
+        string _serverName;
 
-        public CreateDemoDataStatus()
+        public CreateDemoDataStatus(string filePath, string serverName)
         {
-            _filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Eagle", "config.json");
+            _filePath = serverName != "Eagle" ? filePath : Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Eagle", "config.json");
             _fileContent = string.Empty;
             _tagName = "CreateDatabaseInitiation";
+            _serverName = serverName;
         }
 
         public override string Run()
@@ -54,6 +54,7 @@ namespace EU.CreateDemoDataStatus
             }
 
             ChangeStatus();
+
             try
             {
                 SaveFileContent();
@@ -62,8 +63,7 @@ namespace EU.CreateDemoDataStatus
             {
                 return $"Can't save the file for some reason.\n{ex.Message}";
             }
-
-            return $"DemoData creation status changed to '{_demoDataCreationStatus}'";
+            return $"DemoData creation status for '{_serverName}' server changed to '{_demoDataCreationStatus}'";
         }
         public override string Help()
         {
@@ -92,7 +92,7 @@ namespace EU.CreateDemoDataStatus
                 if (matchesCount == 1)
                 {
                     var status = matches[0].Groups[2].ToString();
-                    if (!Enum.TryParse(status, out _demoDataCreationStatus)) throw new Exception ($"Wrong option inside '{_tagName}' XML-tag");
+                    if (!Enum.TryParse(status, out _demoDataCreationStatus)) throw new Exception($"Wrong option inside '{_tagName}' XML-tag");
                 }
                 else
                     throw new Exception($"The file structure is not correct, but it has '{_tagName}' XML-tags");
@@ -104,7 +104,7 @@ namespace EU.CreateDemoDataStatus
         {
 
             _fileContent = File.ReadAllText(_filePath);
-            if (string.IsNullOrEmpty(_fileContent))
+            if (string.IsNullOrWhiteSpace(_fileContent))
             {
                 throw new Exception("The file is empty");
             }

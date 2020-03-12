@@ -41,6 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="CreateDemoDataStatusEagle.cs" />
+    <Compile Include="CreateDemoDataStatusMyEbms.cs" />
+    <Compile Include="CreateDemoDataStatusMyEbmsTests.cs" />
+    <Compile Include="CreateDemoDataStatusCentralAppManager.cs" />
+    <Compile Include="CreateDemoDataStatusModelDesigner.cs" />
+    <Compile Include="CreateDemoDataStatusVision.cs" />
+    <Compile Include="CreateDemoDataStatusSample.cs" />
     <Compile Include="CreateDemoDataStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
