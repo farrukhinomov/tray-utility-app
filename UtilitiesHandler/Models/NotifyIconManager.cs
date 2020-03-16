@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
@@ -18,7 +19,7 @@ namespace UtilitiesHandler
             _notifyIcon = new NotifyIcon()
             {
                 ContextMenuStrip = new ContextMenuStrip(),
-                Icon = new System.Drawing.Icon($"{System.AppDomain.CurrentDomain.BaseDirectory}..\\..\\Assets\\app_icon.ico"),
+                Icon = Icon.ExtractAssociatedIcon(Assembly.GetExecutingAssembly().Location),
                 Text = "Utilities Handler",
                 Visible = true,
             };
