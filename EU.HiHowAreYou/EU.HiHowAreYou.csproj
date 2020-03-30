@@ -8,6 +8,10 @@
     <OutputPath>..\UtilitiesHandler\bin\Debug\</OutputPath>
   </PropertyGroup>
   
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\UtilitiesHandler\bin\Release\</OutputPath>
+  </PropertyGroup>
+  
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj" />
   </ItemGroup>

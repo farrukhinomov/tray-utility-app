@@ -8,7 +8,7 @@ namespace EU.DeleteOutputFolder
     public class DeleteOutputFolder : UtilityBase
     {
         const string UtilityName = "Delete output folder";
-        const string DeletingFolderPath = @"C:\Repos\Output"; //set folder to delete
+        const string DeletingFolderPath = @"C:\Repos\Eagle\Output"; //set folder to delete
         public override string Run()
         {
             if (Directory.Exists(DeletingFolderPath))

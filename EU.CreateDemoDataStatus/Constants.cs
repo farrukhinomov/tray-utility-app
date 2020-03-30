@@ -8,7 +8,7 @@ namespace EU.CreateDemoDataStatus
 {
     public class Constants
     {
-        public const string PathOutput = @"C:\Repos\Output\Debug\";
+        public const string PathOutput = @"C:\Repos\Eagle\Output\Debug\";
         public const string FileName = "config.json";
 
         public const string PathEagle = "";
