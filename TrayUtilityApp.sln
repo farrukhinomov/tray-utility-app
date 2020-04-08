@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtilitiesHandler", "Utiliti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EU.DeleteOutputFolder", "EU.DeleteOutputFolder\EU.DeleteOutputFolder.csproj", "{8183EC39-FD6C-4CBB-8EE8-80CBBF656F05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EU.DropDatabase", "EU.DropSampleDatabase\EU.DropDatabase.csproj", "{AA2C8754-BB50-45F7-8280-E6C6340CF328}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EU.DropDatabase", "EU.DropDatabase\EU.DropDatabase.csproj", "{AA2C8754-BB50-45F7-8280-E6C6340CF328}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EU.CreateDemoDataStatus", "EU.CreateDemoDataStatus\EU.CreateDemoDataStatus.csproj", "{DA5F2F29-AC16-4B33-A4FF-F6049DBC4BF8}"
 EndProject
