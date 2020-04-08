@@ -83,19 +83,19 @@ Only one project here has UI and it is 'UtilitiesHandler'. The app starts from t
 'Common' project is the base project for all the utilities through which 'UtilitiesHandler' detects utilities.
 
 ### Utility project properties
-- [x] Type(usually): Class library;  
-- [x] Target framework(usually): .NET Framework 4.8;  
+- [x] Type (usually): Class library;  
+- [x] Target framework (usually): .NET Framework 4.8;  
 - [x] Name (Required): starts with 'EU.' prefix and has words with meaning;  
 - [x] Reference (Required): add 'Common' project from the solution;  
 - [x] Output path for 'Debug' mode: ..\UtilitiesHandler\bin\Debug\ ;  
 - [x] Output path for 'Release' mode: ..\UtilitiesHandler\bin\Release\ .
 
 ### Utility project class
-- [x] Name: same as project name without prefix;  
-- [x] Namespace of class: same as project name;  
-- [x] Inherit: abstract UtilityBase class;  
-- [x] Implements: 'Run' and 'Help' methods of abstract UtilityBase class, which comes from 'Common' project;  
-- [x] Attribute: applies 'Utility' attribute where set utility name, which will be shown in the UI of 'UtilitiesHandler' project.
+- [x] Name (Required): same as project name without prefix;  
+- [x] Namespace of class (Required): same as project name;  
+- [x] Inherit (Required): abstract UtilityBase class;  
+- [x] Implements (Required): 'Run' and 'Help' methods of abstract UtilityBase class, which comes from 'Common' project;  
+- [x] Attribute (Required): applies 'Utility' attribute where set utility name, which will be shown in the UI of 'UtilitiesHandler' project.
 
 Example:
 ```csharp
@@ -112,12 +112,12 @@ namespace EU.DeleteOutputFolder
 ### Utility project class methods
 
 #### 'Run' method
-- [x] Name: 'Run'  
+- [x] Name: 'Run';  
 - [x] Access modifier: Public;  
 - [x] Return type: string;  
 - [x] Override method;  
 - [x] Parameters: no;  
-- Perpose: performs actions, which user expect of utility and returns the result of actions;
+- Perpose: performs actions, which user expect of utility and returns the result of actions.
 
 Example:
 ```csharp
@@ -134,7 +134,7 @@ public override string Run()
 - [x] Return type: string;  
 - [x] Override method;  
 - [x] Parameters: no;  
-- Perpose: returns information about the utility. The information will be shown when user hover on utility name in the context menu, which opens when click on the icon in the tray;
+- Perpose: returns information about the utility. The information will be shown when user hover on utility name in the context menu, which opens when click on the icon in the tray.
 
 Example:
 ```csharp
@@ -217,7 +217,7 @@ namespace EU.DeleteSomeFolder
 
 ### Testing
 
-1. Create 'SomeFolder' folder in 'c:\' directory using 'Windows Explorer':  
+1. Create 'SomeFolder' folder in 'c:\' directory using 'Windows Explorer':    
 ![Windows Explorer window](ImagesForReadme/create_somefolder_in_c.jpg)
 
 2. In Visual Studio, go to 'Standart' panel, select 'UtiliesHandler' project and start:  
@@ -227,6 +227,7 @@ namespace EU.DeleteSomeFolder
 ![UtilitiesHandler context menu in the tray](ImagesForReadme/new_project_contextmenu.jpg)
 
 Hovering on 'Delete some folder' utility in the list, we have 'Deletes C:\SomeFolder' which comes from 'Help' method of utility class.
+
 4. Clicking on the utility we deleted 'SomeFolder' in 'c:\' directory. We can check message:  
 ![UtilitiesHandler UI](ImagesForReadme/new_project_ui1.jpg)
 
