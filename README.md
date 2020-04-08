@@ -83,19 +83,19 @@ Only one project here has UI and it is 'UtilitiesHandler'. The app starts from t
 'Common' project is the base project for all the utilities through which 'UtilitiesHandler' detects utilities.
 
 ### Utility project properties
-Type(usually): Class library;  
-Target framework(usually): .NET Framework 4.8;  
-Name (Required): starts with 'EU.' prefix and has words with meaning;  
-Reference (Required): add 'Common' project from the solution;  
-Output path for 'Debug' mode: ..\UtilitiesHandler\bin\Debug\ ;  
-Output path for 'Release' mode: ..\UtilitiesHandler\bin\Release\ .
+- [x] Type(usually): Class library;  
+- [x] Target framework(usually): .NET Framework 4.8;  
+- [x] Name (Required): starts with 'EU.' prefix and has words with meaning;  
+- [x] Reference (Required): add 'Common' project from the solution;  
+- [x] Output path for 'Debug' mode: ..\UtilitiesHandler\bin\Debug\ ;  
+- [x] Output path for 'Release' mode: ..\UtilitiesHandler\bin\Release\ .
 
 ### Utility project class
-Name: same as project name without prefix;  
-Namespace of class: same as project name;  
-Inherit: abstract UtilityBase class;  
-Implements: 'Run' and 'Help' methods of abstract UtilityBase class, which comes from 'Common' project;  
-Attribute: applies 'Utility' attribute where set utility name, which will be shown in the UI of 'UtilitiesHandler' project.
+- [x] Name: same as project name without prefix;  
+- [x] Namespace of class: same as project name;  
+- [x] Inherit: abstract UtilityBase class;  
+- [x] Implements: 'Run' and 'Help' methods of abstract UtilityBase class, which comes from 'Common' project;  
+- [x] Attribute: applies 'Utility' attribute where set utility name, which will be shown in the UI of 'UtilitiesHandler' project.
 
 Example:
 ```csharp
@@ -112,12 +112,12 @@ namespace EU.DeleteOutputFolder
 ### Utility project class methods
 
 #### 'Run' method
-Name: 'Run'  
-Access modifier: Public;  
-Return type: string;  
-Override method;  
-Parameters: no;  
-Perpose: performs actions, which user expect of utility and returns the result of actions;
+- [x] Name: 'Run'  
+- [x] Access modifier: Public;  
+- [x] Return type: string;  
+- [x] Override method;  
+- [x] Parameters: no;  
+- Perpose: performs actions, which user expect of utility and returns the result of actions;
 
 Example:
 ```csharp
@@ -129,12 +129,12 @@ public override string Run()
 ```
 
 #### 'Help' method
-Name: 'Help'  
-Access modifier: Public;  
-Return type: string;  
-Override method;  
-Parameters: no;  
-Perpose: returns information about the utility. The information will be shown when user hover on utility name in the context menu, which opens when click on the icon in the tray;
+- [x] Name: 'Help'  
+- [x] Access modifier: Public;  
+- [x] Return type: string;  
+- [x] Override method;  
+- [x] Parameters: no;  
+- Perpose: returns information about the utility. The information will be shown when user hover on utility name in the context menu, which opens when click on the icon in the tray;
 
 Example:
 ```csharp
@@ -235,7 +235,10 @@ Hovering on 'Delete some folder' utility in the list, we have 'Deletes C:\SomeFo
 
 ### Recommendations
 
-In some cases you need to create utilities, which do very similiar actions.  
-For example delete database 'A', also you have database 'B', database 'C' and etc. You want want to create utility, which deletes for each database. In this case you can create a class and inheriting from this class, you can create utility classes and pass necessary data to parent class through the class contructor. You do this in order to save your time on creating projects for each similiar utilities.  
-Now you will have just one project and parent class which do all the action and children classes, which pass only data.  
+In some cases you need to create utilities, which do very similiar actions.
+
+For example delete database 'A', also you have database 'B', database 'C' and etc. You want want to create utility, which deletes for each database. In this case you can create a class and inheriting from this class, you can create utility classes and pass necessary data to parent class through the class contructor. You do this in order to save your time on creating projects for each similiar utilities.
+
+Now you will have just one project and parent class which do all the action and children classes, which pass only data.
+
 You can find in the solution of the repository 'EU.DropDatabase' project and it's done as aforementioned.
