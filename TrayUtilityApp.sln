@@ -3,13 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UtilitiesHandlerConsole", "UtilitiesHandlerConsole\UtilitiesHandlerConsole.csproj", "{77125B2C-5CE1-4E70-933F-2F42DDBEBF54}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EU.HelloWorld", "EU.HelloWorld\EU.HelloWorld.csproj", "{23622F0F-DF89-455C-AFE9-C886494F50C0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{FE0CBE4F-0233-4D2C-8F68-5125AA3024E4}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EU.HiHowAreYou", "EU.HiHowAreYou\EU.HiHowAreYou.csproj", "{7366B3A7-B886-4F12-B0F8-253338555EC4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtilitiesHandler", "UtilitiesHandler\UtilitiesHandler.csproj", "{0FC3FD73-2F7F-4FD1-8271-36575E543483}"
 EndProject
@@ -21,18 +17,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EU.CreateDemoDataStatus", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EU.DeleteFolder", "EU.DeleteFolder\EU.DeleteFolder.csproj", "{B014FA87-8FCE-4666-9AA8-3018E9514200}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EU.CopySqlServerBatchParserFile", "EU.CopySqlServerBatchParserFile\EU.CopySqlServerBatchParserFile.csproj", "{DA32ED2F-3312-48F5-B1B2-F984CFDA10CA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{77125B2C-5CE1-4E70-933F-2F42DDBEBF54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{77125B2C-5CE1-4E70-933F-2F42DDBEBF54}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{77125B2C-5CE1-4E70-933F-2F42DDBEBF54}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{77125B2C-5CE1-4E70-933F-2F42DDBEBF54}.Release|Any CPU.Build.0 = Release|Any CPU
 		{23622F0F-DF89-455C-AFE9-C886494F50C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{23622F0F-DF89-455C-AFE9-C886494F50C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23622F0F-DF89-455C-AFE9-C886494F50C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -41,10 +31,6 @@ Global
 		{FE0CBE4F-0233-4D2C-8F68-5125AA3024E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE0CBE4F-0233-4D2C-8F68-5125AA3024E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE0CBE4F-0233-4D2C-8F68-5125AA3024E4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7366B3A7-B886-4F12-B0F8-253338555EC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7366B3A7-B886-4F12-B0F8-253338555EC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7366B3A7-B886-4F12-B0F8-253338555EC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7366B3A7-B886-4F12-B0F8-253338555EC4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0FC3FD73-2F7F-4FD1-8271-36575E543483}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0FC3FD73-2F7F-4FD1-8271-36575E543483}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FC3FD73-2F7F-4FD1-8271-36575E543483}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -65,10 +51,6 @@ Global
 		{B014FA87-8FCE-4666-9AA8-3018E9514200}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B014FA87-8FCE-4666-9AA8-3018E9514200}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B014FA87-8FCE-4666-9AA8-3018E9514200}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DA32ED2F-3312-48F5-B1B2-F984CFDA10CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DA32ED2F-3312-48F5-B1B2-F984CFDA10CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DA32ED2F-3312-48F5-B1B2-F984CFDA10CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DA32ED2F-3312-48F5-B1B2-F984CFDA10CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
