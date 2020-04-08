@@ -1,6 +1,5 @@
 # Tray Utility App
 
-The app has been written in C#. The app makes your development process easier.  
 The main purpose of the app is saving your time, during the development, but first you need is write your utilities for it.  
 The app includes some utilities like “Delete 'some' folder”, “Drop 'some' Database” etc.  
 Maybe some of them needs to be configured first, but all the built-in utilities will be functionable.  
