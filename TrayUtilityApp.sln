@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EU.CreateDemoDataStatus", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EU.DeleteFolder", "EU.DeleteFolder\EU.DeleteFolder.csproj", "{B014FA87-8FCE-4666-9AA8-3018E9514200}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EU.ModelDesignerActions", "UI.ModelDesignerActions\EU.ModelDesignerActions.csproj", "{7949A309-4E8D-4B66-AEAE-C73443B2805E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EU.DeleteCache", "UI.DeleteCache\EU.DeleteCache.csproj", "{EB4A41BF-320F-42D1-B908-497C13047F32}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{B014FA87-8FCE-4666-9AA8-3018E9514200}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B014FA87-8FCE-4666-9AA8-3018E9514200}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B014FA87-8FCE-4666-9AA8-3018E9514200}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7949A309-4E8D-4B66-AEAE-C73443B2805E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7949A309-4E8D-4B66-AEAE-C73443B2805E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7949A309-4E8D-4B66-AEAE-C73443B2805E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7949A309-4E8D-4B66-AEAE-C73443B2805E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB4A41BF-320F-42D1-B908-497C13047F32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB4A41BF-320F-42D1-B908-497C13047F32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB4A41BF-320F-42D1-B908-497C13047F32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB4A41BF-320F-42D1-B908-497C13047F32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
